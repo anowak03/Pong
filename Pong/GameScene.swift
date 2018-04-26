@@ -35,4 +35,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         topPaddle.run(SKAction.moveTo(x: location.x, duration: 0.2))
         
     }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        
+        topPaddle.run(SKAction.moveTo(x: location.x, duration: 2.0))
+        bottomPaddle.run(SKAction.moveTo(x: -location.x, duration: 2.0))
+        leftPaddle.run(SKAction.moveTo(x: location.x, duration: 2.0))
+        rightPaddle.run(SKAction.moveTo(x: -location.x, duration: 2.0))
+        
+    }
 }
